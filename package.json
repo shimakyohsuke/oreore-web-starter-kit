@@ -1,0 +1,39 @@
+{
+  "name": "oreore-web-starter-kit",
+  "version": "1.0.0",
+  "description": "OREORE Web Starter Kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "shimakyohsuke",
+    "email": "hello@shimakyohsuke.com",
+    "url": "http://shimakyohsuke.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shimakyohsuke/oreore-web-starter-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shimakyohsuke/oreore-web-starter-kit/issues"
+  },
+  "homepage": "https://github.com/shimakyohsuke/oreore-web-starter-kit/issues",
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.2",
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "jquery": "^2.2.3",
+    "licensify": "^3.1.0",
+    "require-dir": "^0.3.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "license": "MIT"
+}
