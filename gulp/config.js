@@ -18,6 +18,9 @@ module.exports = {
         ]
     },
     watch: {
-        js: baseConfig.sourceDir + '/js/*.js'
+        js: [
+            baseConfig.sourceDir + '/js/*.js',
+            baseConfig.sourceDir + '/js/**/*.js'
+        ]
     }
 };
