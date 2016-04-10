@@ -5,4 +5,5 @@ var config = require('../config.js');
 
 gulp.task('watch', function() {
     gulp.watch(config.watch.js, ['browserify']);
+    gulp.watch(config.watch.jade, ['jade']);
 });

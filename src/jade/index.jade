@@ -1,0 +1,24 @@
+doctype
+html(lang='ja-JP')
+	head
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(charset='UTF-8')
+		meta(name='format-detection', content='telephone=no')
+		meta(name='viewport', content='width=1020')
+		title
+			| oreore-web-starter-kit
+		script(src="/js/main.js")
+	body
+		h1
+			| oreore-web-starter-kit
+		p= site.domain
+		p= meta.description
+		ul
+			- loop.forEach(function(list){
+					li
+						span
+							= list.name
+						br
+						span
+							= list.filename
+			- });
