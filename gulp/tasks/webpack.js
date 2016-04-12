@@ -10,5 +10,5 @@ gulp.task('webpack', function() {
                 filename: 'bundle.js'
             }
         }))
-        .pipe(gulp.dest(config.simple.publishDir + 'js/'));
+        .pipe(gulp.dest(config.simple.publishDir));
 });
