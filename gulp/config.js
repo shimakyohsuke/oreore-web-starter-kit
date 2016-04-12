@@ -8,9 +8,9 @@ var root = path.resolve(__dirname + '/..');
 
 module.exports = {
     root: root,
-    src: root + '/src',
-    dest: root + '/dist',
-    data: root + '/src/data',
+    src: root + '/src/',
+    dest: root + '/dist/',
+    data: root + '/src/data/',
     simple: baseConfig,
     browserSync: {
         port: 8080,
@@ -20,8 +20,8 @@ module.exports = {
         },
         files: [
             baseConfig.publishDir + "*.html",
-            baseConfig.publishDir + "style.css",
-            baseConfig.publishDir + "js/main.js",
+            baseConfig.publishDir + "*.css",
+            baseConfig.publishDir + "js/*.js",
             baseConfig.publishDir + "images/*.png"
         ]
     },
@@ -33,7 +33,10 @@ module.exports = {
         jade: [
             baseConfig.sourceDir + 'jade/*.jade',
             baseConfig.sourceDir + 'jade/**/*.jade',
-            '!' + baseConfig.sourceDir + 'jade/**/_*.jade',
+            baseConfig.sourceDir + 'jade/**/_*.jade',
+        ],
+        stylus: [
+            baseConfig.sourceDir + 'stylus/*.styl'
         ]
     }
 };
