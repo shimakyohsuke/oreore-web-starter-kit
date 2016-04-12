@@ -1,6 +1,7 @@
 'use strict';
 var gulp = require('gulp');
 var webpack = require('webpack-stream');
+var config = require('../config.js');
 
 gulp.task('webpack', function() {
     gulp.src(['./src/js/entry.js'])
@@ -9,5 +10,5 @@ gulp.task('webpack', function() {
                 filename: 'bundle.js'
             }
         }))
-        .pipe(gulp.dest('./dist/js/'));
+        .pipe(gulp.dest(config.simple.publishDir + 'js/'));
 });
