@@ -4,14 +4,12 @@ html(lang='ja-JP')
 		meta(http-equiv='X-UA-Compatible', content='IE=edge')
 		meta(charset='UTF-8')
 		meta(name='format-detection', content='telephone=no')
-		meta(name='viewport', content='width=1020')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0')
 		title
 			| oreore-web-starter-kit
 		script(src="bundle.js")
-		link(rel='stylesheet', href='style.css')
+		link(href='style.css', rel='stylesheet')
 	body
-		h1
-			| oreore-web-starter-kit
 		p= site.domain
 		p= meta.description
 		ul
@@ -23,3 +21,7 @@ html(lang='ja-JP')
 						span
 							= list.filename
 			- });
+		p
+			textarea.your-text-area
+		a.anchorlink2(href="#")
+			| top

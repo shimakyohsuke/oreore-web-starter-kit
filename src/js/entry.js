@@ -1,6 +1,15 @@
-var anchorLink = require('./assets/anchorLink.js');
+import log from './assets/log.js';
+log('Yo!!');
+
+import anchorLink from './assets/anchorLink.js';
 anchorLink({
     speed: 1000,
-    offset: 80
+    offset: 80,
+    elements: ".anchorlink2"
 });
-var anchorLink = require('./assets/log.js');
+
+import elasticTextarea from './assets/elasticTextarea.js';
+window.addEventListener('load', function(eve) {
+    var el = document.querySelector('textarea.your-text-area');
+    elasticTextarea(el);
+}, false);

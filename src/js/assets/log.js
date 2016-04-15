@@ -1,4 +1,4 @@
-var $ = require('jquery');
-$(function () {
-    console.log( "Hey!!" );
-});
+let log = (log) => {
+    return console.log( log );
+};
+module.exports = log;

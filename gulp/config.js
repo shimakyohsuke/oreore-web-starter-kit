@@ -20,8 +20,9 @@ module.exports = {
         },
         files: [
             baseConfig.publishDir + "*.html",
+            baseConfig.publishDir + "**/*.html",
             baseConfig.publishDir + "*.css",
-            baseConfig.publishDir + "js/*.js",
+            baseConfig.publishDir + "*.js",
             baseConfig.publishDir + "images/*.png"
         ]
     },
