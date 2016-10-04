@@ -1,3 +1,6 @@
+// global.jQuery = require('jquery');
+// global.$ = jQuery;
+
 import log from './assets/log.js';
 log('Yo!!');
 
