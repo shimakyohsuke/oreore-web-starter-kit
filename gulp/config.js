@@ -31,10 +31,10 @@ module.exports = {
             baseConfig.sourceDir + 'js/*.js',
             baseConfig.sourceDir + 'js/**/*.js'
         ],
-        jade: [
-            baseConfig.sourceDir + 'jade/*.jade',
-            baseConfig.sourceDir + 'jade/**/*.jade',
-            baseConfig.sourceDir + 'jade/**/_*.jade',
+        pug: [
+            baseConfig.sourceDir + 'pug/*.pug',
+            baseConfig.sourceDir + 'pug/**/*.pug',
+            baseConfig.sourceDir + 'pug/**/_*.pug',
         ],
         stylus: [
             baseConfig.sourceDir + 'stylus/*.styl'

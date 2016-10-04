@@ -1,3 +1,4 @@
 {
-  "domain": "http://example.com/"
+  "domain": "http://example.com/",
+  "root": "/"
 }
