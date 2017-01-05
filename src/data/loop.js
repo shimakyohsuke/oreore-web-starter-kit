@@ -4,7 +4,7 @@ module.exports = [
         "filename": "hoge.png"
     },
     {
-        "name": "hoge2",
-        "filename": "hoge2.png"
+        "name": "moge",
+        "filename": "moge.png"
     }
 ];

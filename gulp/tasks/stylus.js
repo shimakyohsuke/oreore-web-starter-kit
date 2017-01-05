@@ -1,3 +1,4 @@
+'use strict';
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
@@ -20,13 +21,18 @@ var BANNER = [
 ].join('\n');
 
 gulp.task('stylus', function() {
-    return gulp.src(config.watch.stylus)
+    return gulp.src(config.src.stylus)
         .pipe(plumber({
-            errorHandler: notify.onError('<%= error.message %>')
+            handleError: function (err) {
+                log(err);
+                this.emit('end');
+            }
         }))
-        .pipe(stylus())
+        .pipe(stylus({
+            'include css': true
+        }))
         .pipe(please({
-            'browsers': ['last 2 versions', 'Android 2.3'],
+            'browsers': ['last 2 versions'],
             minifier: false
         }))
         .pipe(size({

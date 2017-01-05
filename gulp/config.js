@@ -26,6 +26,15 @@ module.exports = {
             baseConfig.publishDir + "images/*.png"
         ]
     },
+    src: {
+        pug: [
+            baseConfig.sourceDir + 'pug/**/!(_)*.pug',
+        ],
+        stylus: [
+            baseConfig.sourceDir + 'stylus/!(_)*.styl',
+            baseConfig.sourceDir + 'stylus/**/!(_)*.styl'
+        ]
+    },
     watch: {
         js: [
             baseConfig.sourceDir + 'js/*.js',

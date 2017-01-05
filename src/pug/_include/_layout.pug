@@ -1,0 +1,35 @@
+- var is_production = isProduction
+- var root = ""
+if(is_production)
+	- root = site.root
+else
+	- root = "/"
+- var s = __page;
+- s = s.replace('\/', '');
+- var currentDirectory = s.replace('index', '');
+- console.log("currentDirectory: " + currentDirectory);
+include ./_mixin.pug
+doctype
+html(lang=site.lang)
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='format-detection', content='telephone=no')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		if(is_production)
+			meta(name="google-site-verification" content=site.google_site_verification)
+		block meta
+		meta(name='description', content=description)
+		meta(property='og:title', content=ogTitle)
+		meta(property='og:site_name', content=site.site_name)
+		meta(property='og:description', content=ogDescription)
+		meta(property='og:url', content=site.domain + ogUrl)
+		meta(property='og:image', content=site.domain + ogimg)
+		meta(property="og:locale" content=site.lang)
+		title=title
+		script(src=root + "bundle.js")
+		link(rel='stylesheet', href=root + 'style.css')
+	body
+		block body
+		if(is_production)
+			include ./_analytics.pug

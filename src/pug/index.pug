@@ -1,33 +1,28 @@
-- var is_production = isProduction
-- if(is_production){
-	- var root = site.root
-- } else {
-	- var root = "/"
-- }
-doctype
-html(lang='ja-JP')
-	head
-		meta(http-equiv='X-UA-Compatible', content='IE=edge')
-		meta(charset='UTF-8')
-		meta(name='format-detection', content='telephone=no')
-		meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0')
-		title
-			| oreore-web-starter-kit
-		script(src="bundle.js")
-		link(href='style.css', rel='stylesheet')
-	body
-		p= site.domain
-		p= meta.description
-		ul
-			- loop.forEach(function(list){
-					li
-						span
-							= list.name
-						br
-						span
-							= list.filename
-			- });
-		p
-			textarea.your-text-area
-		a.anchorlink2(href="#")
-			| top
+extends ./_include/_layout.pug
+block meta
+	- var title = meta.title + ' | ' + site.site_name;
+	- var description = meta.description;
+	- var ogUrl = '';
+	- var ogTitle = title;
+	- var ogDescription = description;
+	- var ogimg = "images/ogp.png";
+block body
+	p= site.domain
+	p= meta.description
+	ul
+		- loop.forEach(function(list){
+				li
+					span
+						= list.name
+					br
+					span
+						= list.filename
+		- });
+	+breadcrumb(
+		"className",
+		{pageName: 'pageName', dir: 'dir'}
+	)
+	p
+		textarea.your-text-area
+	a.js-scroll_to_top(href="#")
+		| top

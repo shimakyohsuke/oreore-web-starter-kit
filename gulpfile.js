@@ -3,4 +3,4 @@ var requireDir = require('require-dir');
 
 requireDir('./gulp/tasks', {recurse: true});
 
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['build', 'browser-sync', 'watch']);

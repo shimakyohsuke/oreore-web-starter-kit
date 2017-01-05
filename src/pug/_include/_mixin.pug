@@ -1,0 +1,32 @@
+//- +breadcrumb(
+//- 	{pageName: 'pageName', dir: 'dir' || false}
+//- )
+mixin breadcrumb(id, ...items)
+	ol(class=id)
+		each item in items
+			if(item.dir)
+				li
+					a(href=item.dir)
+						=item.pageName
+			else
+				li=item.pageName
+
+//- +gnav(
+//- 	{pageName: 'pageName', dir: 'dir'}
+//- )
+mixin gnav(id, ...items)
+	ul(class=id)
+		each item in items
+			li
+				if(item.dir == currentDirectory)
+					a.is_active(href="/" + item.dir)
+						| !{item.pageName}
+						br
+						span
+							| !{item.pageNameEn}
+				else
+					a(href="/" + item.dir)
+						| !{item.pageName}
+						br
+						span
+							| !{item.pageNameEn}

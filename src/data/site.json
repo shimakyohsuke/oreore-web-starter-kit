@@ -1,4 +1,7 @@
 {
+  "lang": "ja",
   "domain": "http://example.com/",
-  "root": "/"
+  "root": "/",
+  "google_site_verification": "",
+  "site_name": "site_name"
 }

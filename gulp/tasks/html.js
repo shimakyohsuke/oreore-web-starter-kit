@@ -3,12 +3,14 @@ var fs = require('fs');
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
+var gulpIf = require("gulp-if");
 var pug = require('gulp-pug');
 var data = require('gulp-data');
 var size = require('gulp-size');
 var changed = require('gulp-changed');
 var minimist = require('minimist');
 var config = require('../config.js');
+var log = console['log'];
 
 gulp.task('html', function() {
     var DEST = config.simple.publishDir;
@@ -19,15 +21,21 @@ gulp.task('html', function() {
     var options = minimist(process.argv.slice(2), knownOptions);
     var isProduction = (options.env === 'production') ? true : false;
 
-    console.log('[build env]', options.env, '[is production]', isProduction);
+    log('[build env]', options.env, '[is production]', isProduction);
 
-    return gulp.src(config.watch.pug)
-        .pipe(changed(
-            DEST,
-            {extension: '.html'}
+    return gulp.src(config.src.pug)
+        .pipe(gulpIf(
+            !isProduction,
+            changed(
+                DEST,
+                {extension: '.html'}
+            )
         ))
         .pipe(plumber({
-            errorHandler: notify.onError('<%= error.message %>')
+            handleError: function (err) {
+                log(err);
+                this.emit('end');
+            }
         }))
         .pipe(data(function(file) {
             var data = {
