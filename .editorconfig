@@ -21,6 +21,10 @@ trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
 
+[*.pug]
+indent_style = tab
+tab_width = 2
+
 [*.jade]
 indent_style = tab
 tab_width = 2
