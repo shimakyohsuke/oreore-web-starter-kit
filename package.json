@@ -4,8 +4,8 @@
   "description": "OREORE Web Starter Kit",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp build --env production"
+    "test": "standard './src/js/**/*.js'",
+    "build": "npm test && gulp build --env production"
   },
   "author": {
     "name": "shimakyohsuke",
@@ -22,6 +22,12 @@
   "homepage": "https://github.com/shimakyohsuke/oreore-web-starter-kit/issues",
   "engines": {
     "node": ">=5.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "./dist/bundle.js",
+      "./gulp/"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.7.6",

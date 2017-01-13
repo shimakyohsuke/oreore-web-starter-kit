@@ -1,4 +1,4 @@
-'use strict';
-var gulp = require('gulp');
+'use strict'
+var gulp = require('gulp')
 
-gulp.task('build', [ 'html', 'stylus', 'webpack' ]);
+gulp.task('build', [ 'html', 'stylus', 'webpack' ])
