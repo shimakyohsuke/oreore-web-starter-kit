@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/shimakyohsuke/oreore-web-starter-kit.svg?branch=master)](https://travis-ci.org/shimakyohsuke/oreore-web-starter-kit)
 
-Gulp, Pug, Stylus, webpack
+gulp, Pug, Stylus, webpack
 
 ## Usage
 
@@ -20,4 +20,12 @@ $ cd oreore-web-starter-kit
 
 ```bash
 $ npm i
+```
+
+---
+
+## Styleguide
+
+```bash
+$ npm run aigis
 ```

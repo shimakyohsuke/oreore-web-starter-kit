@@ -1,0 +1,17 @@
+# The directory containing the source files to parse recursively
+source:
+  - ../src/aigis/aigis_assets
+  - ../src/stylus/
+
+# The directory that aigis will build to
+dest: ../dist/styleguide
+
+# The assets needed to build the docs
+# You may put doc related assets here too: images, css, etc.
+dependencies:
+  - ../src/aigis/aigis_assets
+
+# The directory containing the tempalte files to generate pages
+# It must contain 'layout.xxx' and 'index.xxx' (.ejs or .jade or .hbs)
+template_dir: ../src/aigis/template_jade
+template_engine: jade
