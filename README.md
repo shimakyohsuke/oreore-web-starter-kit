@@ -26,6 +26,8 @@ $ npm i
 
 ## Styleguide
 
+Aigis: <https://pxgrid.github.io/aigis/>
+
 ```bash
 $ npm run aigis
 ```
