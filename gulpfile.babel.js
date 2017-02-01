@@ -1,5 +1,7 @@
-var gulp = require('gulp')
-var requireDir = require('require-dir')
+'use strict'
+
+import gulp from 'gulp'
+import requireDir from 'require-dir'
 
 requireDir('./gulp/tasks', {recurse: true})
 

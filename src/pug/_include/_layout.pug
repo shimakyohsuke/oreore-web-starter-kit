@@ -7,7 +7,7 @@ else
 - var s = __page;
 - s = s.replace('\/', '');
 - var currentDirectory = s.replace('index', '');
-- console.log("currentDirectory: " + currentDirectory);
+- console.log('currentDirectory: ' + currentDirectory);
 include ./_mixin.pug
 doctype
 html(lang=site.lang)
@@ -27,7 +27,7 @@ html(lang=site.lang)
 		meta(property='og:image', content=site.domain + ogimg)
 		meta(property="og:locale" content=site.lang)
 		title=title
-		script(src=root + "bundle.js")
+		script(src=root + 'bundle.js')
 		link(rel='stylesheet', href=root + 'style.css')
 	body
 		block body

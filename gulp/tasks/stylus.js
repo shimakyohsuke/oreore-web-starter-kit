@@ -1,14 +1,20 @@
 'use strict'
-var gulp = require('gulp')
-var plumber = require('gulp-plumber')
-var stylus = require('gulp-stylus')
-var header = require('gulp-header')
-var please = require('gulp-pleeease')
-var size = require('gulp-size')
-var config = require('../config.js')
-var pkg = require('../../package.json')
-var log = console['log']
-var BANNER = [
+
+import gulp from 'gulp'
+import watch from 'gulp-watch'
+import plumber from 'gulp-plumber'
+import stylus from 'gulp-stylus'
+import header from 'gulp-header'
+import please from 'gulp-pleeease'
+import size from 'gulp-size'
+import config from '../config.js'
+import pkg from '../../package.json'
+import gulpIf from 'gulp-if'
+import sourcemaps from 'gulp-sourcemaps'
+
+const DEST = config.baseConfig.publishDir
+const log = console['log']
+const BANNER = [
   '@charset "UTF-8";',
   '/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
@@ -20,14 +26,18 @@ var BANNER = [
   ''
 ].join('\n')
 
-gulp.task('stylus', function () {
-  return gulp.src(config.src.stylus)
+gulp.task('stylus', () => {
+  return gulp.src(config.tasks.stylus.src)
     .pipe(plumber({
       handleError: function (err) {
         log(err)
         this.emit('end')
       }
     }))
+    .pipe(gulpIf(
+      !config.envProduction,
+      sourcemaps.init()
+    ))
     .pipe(stylus({
       'include css': true
     }))
@@ -35,9 +45,19 @@ gulp.task('stylus', function () {
       'browsers': ['last 2 versions'],
       minifier: false
     }))
+    .pipe(gulpIf(
+      !config.envProduction,
+      sourcemaps.write()
+    ))
     .pipe(size({
       showFiles: true
     }))
     .pipe(header(BANNER, { pkg: pkg }))
-    .pipe(gulp.dest(config.simple.publishDir))
+    .pipe(gulp.dest(DEST))
+})
+
+gulp.task('stylus:watch', () => {
+  return watch(config.tasks.stylus.watch, () => {
+    return gulp.start(['stylus'])
+  })
 })

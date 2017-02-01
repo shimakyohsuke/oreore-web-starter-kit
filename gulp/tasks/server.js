@@ -1,8 +1,9 @@
 'use strict'
-var gulp = require('gulp')
-var browserSync = require('browser-sync').create()
-var config = require('../config.js')
 
-gulp.task('browser-sync', function () {
-  browserSync.init(config.browserSync)
+import gulp from 'gulp'
+import browserSync from 'browser-sync'
+const config = require('../config.js')
+
+gulp.task('browser-sync', () => {
+  browserSync.init(config.tasks.browserSync)
 })

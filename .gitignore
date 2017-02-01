@@ -1,6 +1,5 @@
 /node_modules
 /dist
-yarn.lock
 
 # Windows image file caches
 Thumbs.db

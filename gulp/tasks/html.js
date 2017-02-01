@@ -1,28 +1,24 @@
 'use strict'
-var fs = require('fs')
-var gulp = require('gulp')
-var plumber = require('gulp-plumber')
-var gulpIf = require('gulp-if')
-var pug = require('gulp-pug')
-var data = require('gulp-data')
-var size = require('gulp-size')
-var changed = require('gulp-changed')
-var minimist = require('minimist')
-var config = require('../config.js')
-var log = console['log']
 
-gulp.task('html', function () {
-  var DEST = config.simple.publishDir
-  var knownOptions = {
-    string: 'env',
-    default: {env: process.env.NODE_ENV || 'development'}
-  }
-  var options = minimist(process.argv.slice(2), knownOptions)
-  var isProduction = (options.env === 'production')
-  log('[build env]', options.env, '[is production]', isProduction)
-  return gulp.src(config.src.pug)
+import fs from 'fs'
+import gulp from 'gulp'
+import watch from 'gulp-watch'
+import plumber from 'gulp-plumber'
+import gulpIf from 'gulp-if'
+import pug from 'gulp-pug'
+import data from 'gulp-data'
+import size from 'gulp-size'
+import changed from 'gulp-changed'
+import config from '../config.js'
+
+const log = console['log']
+const DEST = config.baseConfig.publishDir
+const path = require('path')
+
+gulp.task('html', () => {
+  return gulp.src(config.tasks.pug.src)
     .pipe(gulpIf(
-      !isProduction,
+      !config.envProduction,
       changed(
         DEST,
         {extension: '.html'}
@@ -35,12 +31,13 @@ gulp.task('html', function () {
       }
     }))
     .pipe(data(function (file) {
-      var data = {
-        isProduction: isProduction,
-        __page: file.path.replace(__dirname, '').replace(/^\//, '').replace(/src\/pug/, '').replace(/\.pug$/, ''),
-        site: JSON.parse(fs.readFileSync(config.data + '/site.json')),
-        meta: JSON.parse(fs.readFileSync(config.data + '/meta.json')),
-        loop: require(config.data + '/loop.js')
+      const data = {
+        isProduction: config.envProduction,
+        isDevelopment: config.envDevelopment,
+        __page: file.path.replace(path.resolve(''), '').replace(/^\//, '').replace(/src\/pug/, '').replace(/\.pug$/, '').replace('index', ''),
+        site: JSON.parse(fs.readFileSync(path.resolve('') + '/' + config.tasks.data.src + 'site.json')),
+        meta: JSON.parse(fs.readFileSync(path.resolve('') + '/' + config.tasks.data.src + 'meta.json')),
+        loop: require(path.resolve('') + '/' + config.tasks.data.src + 'loop.js')
       }
       return data
     }))
@@ -51,4 +48,10 @@ gulp.task('html', function () {
       showFiles: true
     }))
     .pipe(gulp.dest(DEST))
+})
+
+gulp.task('html:watch', () => {
+  return watch(config.tasks.pug.watch, () => {
+    return gulp.start(['html'])
+  })
 })

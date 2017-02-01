@@ -5,7 +5,7 @@ block meta
 	- var ogUrl = '';
 	- var ogTitle = title;
 	- var ogDescription = description;
-	- var ogimg = "images/ogp.png";
+	- var ogimg = 'images/ogp.png';
 block body
 	p= site.domain
 	p= meta.description
@@ -18,11 +18,11 @@ block body
 					span
 						= list.filename
 		- });
+
 	+breadcrumb(
-		"className",
+		'className',
 		{pageName: 'pageName', dir: 'dir'}
 	)
-	p
-		textarea.your-text-area
-	a.js-scroll_to_top(href="#")
-		| aaa
+
+	a(href="https://shimakyohsuke.com/")
+		img(src="images/icon.jpg", alt="")
