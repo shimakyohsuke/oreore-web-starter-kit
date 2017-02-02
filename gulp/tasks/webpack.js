@@ -10,9 +10,7 @@ import plumber from 'gulp-plumber'
 const log = console['log']
 
 gulp.task('webpack', () => {
-  if (config.envProduction) {
-    webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin())
-  } else {
+  if (!config.envProduction) {
     webpackConfig.devtool = 'source-map'
   }
   return gulp.src(config.tasks.webpack.src)
