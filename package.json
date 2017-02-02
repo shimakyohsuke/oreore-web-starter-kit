@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "standard './src/js/**/*.js'",
-    "build": "rm -rf dist && npm test && gulp build --env production",
+    "clean": "rm -rf dist",
+    "webpack": "gulp webpack --env production",
+    "html": "gulp html --env production",
+    "stylus": "gulp stylus --env production",
+    "production": "gulp build --env production",
+    "build": "npm run clean && npm test && npm run production",
     "aigis": "./node_modules/.bin/aigis run -c ./gulp/aigis_config.yml"
   },
   "author": {
@@ -48,26 +53,26 @@
     "gulp-debug": "^3.0.0",
     "gulp-header": "^1.8.8",
     "gulp-if": "^2.0.2",
-    "gulp-notify": "^2.2.0",
+    "gulp-notify": "^3.0.0",
     "gulp-pleeease": "^2.0.2",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.2.0",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.4.0",
     "gulp-stylus": "^2.6.0",
-    "gulp-uglify": "^1.5.4",
+    "gulp-uglify": "^2.0.1",
     "gulp-watch": "^4.3.11",
     "minimist": "^1.2.0",
     "node-aigis": "^1.2.1",
     "require-dir": "^0.3.1",
     "standard": "^8.6.0",
-    "webpack": "^1.14.0",
+    "webpack": "^2.2.1",
     "webpack-stream": "^3.2.0"
   },
   "license": "MIT",
   "dependencies": {
-    "jquery": "^2.2.3",
-    "normalize.css": "^4.2.0",
-    "sanitize.css": "^3.3.0"
+    "jquery": "^3.1.1",
+    "normalize.css": "^5.0.0",
+    "sanitize.css": "^4.1.0"
   }
 }
