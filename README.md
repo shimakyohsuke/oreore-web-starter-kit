@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/shimakyohsuke/oreore-web-starter-kit.svg?branch=master)](https://travis-ci.org/shimakyohsuke/oreore-web-starter-kit)
 
+[![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](http://standardjs.com/)
+
 gulp, Pug, Stylus, webpack
 
 ## Usage
@@ -24,7 +28,7 @@ $ npm i
 
 ---
 
-## Styleguide
+### Styleguide
 
 Aigis: <https://pxgrid.github.io/aigis/>
 
@@ -34,7 +38,9 @@ $ npm run aigis
 
 ---
 
-###### パッケージ更新確認
+### その他
+
+#### node_modules の更新確認
 
 npm-check-updates というパッケージを global にインストール
 
@@ -64,7 +70,7 @@ or
 ncu -u
 ```
 
-###### node_modules clean
+#### node_modules の cache 削除
 
 
 ```bash
@@ -72,4 +78,13 @@ $ rm -rf node_modules
 $ npm cache clean
 $ npm cache ls
 $ rm -rf ~/.npm
+```
+
+#### .gitignore の cache 削除
+
+```bash
+$ git rm -r --cached .
+$ git add .
+$ git commit -m ".gitignore is now working"
+$ git push origin master
 ```
