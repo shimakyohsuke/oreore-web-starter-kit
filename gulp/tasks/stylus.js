@@ -5,12 +5,12 @@ import watch from 'gulp-watch'
 import plumber from 'gulp-plumber'
 import stylus from 'gulp-stylus'
 import header from 'gulp-header'
-import please from 'gulp-pleeease'
 import size from 'gulp-size'
 import config from '../config.js'
 import pkg from '../../package.json'
 import gulpIf from 'gulp-if'
 import sourcemaps from 'gulp-sourcemaps'
+import autoprefixer from 'gulp-autoprefixer'
 
 const DEST = config.baseConfig.publishDir
 const log = console['log']
@@ -41,9 +41,9 @@ gulp.task('stylus', () => {
     .pipe(stylus({
       'include css': true
     }))
-    .pipe(please({
-      'browsers': ['last 2 versions'],
-      minifier: false
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
     }))
     .pipe(gulpIf(
       !config.envProduction,

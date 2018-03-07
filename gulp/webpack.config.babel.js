@@ -5,6 +5,7 @@ const DEST = config.baseConfig.publishDir
 
 export default {
   devtool: '',
+  mode: 'production',
   entry: [
     path.resolve('') + '/src/js/entry.js'
   ],
@@ -13,7 +14,7 @@ export default {
     filename: config.tasks.webpack.filename
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
